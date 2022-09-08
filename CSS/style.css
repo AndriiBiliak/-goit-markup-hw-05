@@ -5,6 +5,7 @@
   --secondary-text-color: #757575;
   --icons-color: #afb1b8;
   --backgraund-color: #ffffff;
+  --animation: 250ms  cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -92,11 +93,13 @@ ul {
   background-color: var(--backgraund-color);
   border-radius: 50%;
   fill: var(--icons-color);
+  transition: color var(--animation), background-color: var(--animation);
 }
 
-/* .socials-icons {
-  fill: var(--icons-color);
-} */
+ .socials-icons {
+  /*fill: currentColor;*/
+  transition: fill var(--animation);
+} 
 
 /* .socials-link:hover .socials-icons,
 .socials-link:focus .socials-icons {
@@ -140,6 +143,12 @@ ul {
   fill: var(--icons-color);
   border: 1px solid var(--icons-color);
   border-radius: 4px;
+  transition: color var(--animation), background-color var(--animation);
+}
+
+
+.cliens-icons{
+ transition: fill var(--animation);
 }
 
 .icons-link:hover,
@@ -147,6 +156,8 @@ ul {
   fill: var(--accent-color);
   border-color: var(--accent-color);
 }
+
+
 
 .accent {
   color: var(--accent-color);
@@ -542,12 +553,19 @@ footer {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   fill: var(--backgraund-color);
+   transition: color var(--animation), background-color var(--animation);
 }
+
+
 
 .socials-link-foot:hover,
 .socials-link-foot:focus {
   background-color: var(--accent-color);
   fill: var(--backgraund-color);
+}
+
+.socials-icons-foot{
+  transform: fill var(--animation);
 }
 
 /* портфоліо основа*/
@@ -657,4 +675,55 @@ footer {
   cursor: pointer;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* modals*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  /*display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: var(--backgraund-color);
+  border-radius: 4px;
+  box-shadow: ;
+}
+
+.modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  background-color: var(--backgraund-color);
+
+  border-radius: 50%;
+  border: 1px Solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
